@@ -15,7 +15,7 @@ public class ProductoApp {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 		ctx.register(Config.class);
 		ctx.refresh();
-		ProductoServicio servicio = (ProductoServicio) ctx.getBean(ProductoServicio.class);
+		ProductoServicio servicio = (ProductoServicio) ctx.getBean("servicio");
 		for(Producto p : servicio.getProductos()) {
 			System.out.println(p);
 		}

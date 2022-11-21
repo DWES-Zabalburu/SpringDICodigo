@@ -2,6 +2,7 @@ package org.zabalburu.springdi.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.zabalburu.springdi.dao.ProductoBBDD;
@@ -11,6 +12,7 @@ import org.zabalburu.springdi.util.Conexion;
 
 @Configuration
 @PropertySource({"org/zabalburu/springdi/props/conexion.properties"})
+@ComponentScan({"org.zabalburu.springdi"})
 public class Config {
 	
 	@Value("${clase}") 
@@ -31,7 +33,7 @@ public class Config {
 		return c;
 	}
 	
-	@Bean
+	@Bean()
 	public ProductoList getProductoList() {
 		return new ProductoList();
 	}
@@ -42,7 +44,7 @@ public class Config {
 	    return productoBBDD;
 	}
 	
-	@Bean
+	@Bean("servicio")
 	public ProductoServicio getServicio() {
 		ProductoServicio servicio = new ProductoServicio();
 		servicio.setDao(getProductoBBDD());
