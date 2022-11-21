@@ -9,11 +9,8 @@ import org.zabalburu.springdi.dao.ProductoDAO;
 import org.zabalburu.springdi.modelo.Categoria;
 import org.zabalburu.springdi.modelo.Producto;
 
-@Service
 public class ProductoServicio {
 	
-	@Autowired
-	@Qualifier("productoBBDD")
 	private ProductoDAO dao;
 	
 	public ProductoServicio(ProductoDAO dao) {
