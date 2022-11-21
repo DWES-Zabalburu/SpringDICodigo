@@ -7,12 +7,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.zabalburu.springdi.modelo.Categoria;
 import org.zabalburu.springdi.modelo.Producto;
 import org.zabalburu.springdi.util.Conexion;
 
+@Repository("productoBBDD")
 public class ProductoBBDD implements ProductoDAO {
 
+	@Autowired
 	private Conexion conn;
 	
 	public ProductoBBDD(Conexion conn) {

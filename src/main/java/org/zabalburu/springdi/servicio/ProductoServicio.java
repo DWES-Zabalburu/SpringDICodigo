@@ -2,11 +2,18 @@ package org.zabalburu.springdi.servicio;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import org.zabalburu.springdi.dao.ProductoDAO;
 import org.zabalburu.springdi.modelo.Categoria;
 import org.zabalburu.springdi.modelo.Producto;
 
+@Service
 public class ProductoServicio {
+	
+	@Autowired
+	@Qualifier("productoBBDD")
 	private ProductoDAO dao;
 	
 	public ProductoServicio(ProductoDAO dao) {

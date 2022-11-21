@@ -3,9 +3,11 @@ package org.zabalburu.springdi.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import org.zabalburu.springdi.modelo.Categoria;
 import org.zabalburu.springdi.modelo.Producto;
 
+@Repository("productoList")
 public class ProductoList implements ProductoDAO {
 
 	private List<Producto> productos = new ArrayList<Producto>();
