@@ -1,20 +1,33 @@
 package org.zabalburu.springdi.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.zabalburu.springdi.dao.ProductoBBDD;
 import org.zabalburu.springdi.dao.ProductoList;
 import org.zabalburu.springdi.servicio.ProductoServicio;
 import org.zabalburu.springdi.util.Conexion;
 
 @Configuration
+@PropertySource({"org/zabalburu/springdi/props/conexion.properties"})
 public class Config {
+	
+	@Value("${clase}") 
+	private String clase;
+	@Value("${url}")
+	private String url;
+	@Value("${usuario}")
+	private String usuario;
+	@Value("${password}")
+	private String password;
+	
 	@Bean
 	public Conexion getConn() {
-		Conexion c = new Conexion("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // Value
-		c.setUrl("jdbc:sqlserver://localhost:2000;databaseName=Northwind;TrustServerCertificate=True;");
-		c.setUsuario("sa");
-		c.setPassword("tiger");
+		Conexion c = new Conexion(this.clase); // Value
+		c.setUrl(this.url);
+		c.setUsuario(this.usuario);
+		c.setPassword(this.password);
 		return c;
 	}
 	
