@@ -32,6 +32,15 @@
 	</bean>
  	<bean id="servicio" class="org.zabalburu.springdi.servicio.ProductoServicio">
  		<!-- <constructor-arg name="dao" ref="productoList"></constructor-arg> -->
- 		<property name="dao" ref="productoList"></property>
+ 		<property name="dao" ref="productoBBDD"></property>
+ 	</bean>
+ 	<bean id="conexion" class="org.zabalburu.springdi.util.Conexion">
+ 		<constructor-arg name="clase" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></constructor-arg>
+ 		<property name="url" value="jdbc:sqlserver://localhost:2000;databaseName=Northwind;TrustServerCertificate=True;"></property>
+ 		<property name="usuario" value="sa"></property>
+ 		<property name="password" value="tiger"></property>
+ 	</bean>
+ 	<bean id="productoBBDD" class="org.zabalburu.springdi.dao.ProductoBBDD">
+ 		<constructor-arg name="conn" ref="conexion" ></constructor-arg>
  	</bean>
 </beans>

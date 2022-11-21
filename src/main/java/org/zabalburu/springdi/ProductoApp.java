@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.zabalburu.springdi.dao.ProductoDAO;
 import org.zabalburu.springdi.dao.ProductoList;
 import org.zabalburu.springdi.modelo.Producto;
+import org.zabalburu.springdi.servicio.ProductoServicio;
 
 public class ProductoApp {
 
@@ -22,8 +23,8 @@ public class ProductoApp {
 		for(Producto p : servicio.getProductos()) {
 			System.out.println(p);
 		}*/
-		ProductoDAO dao = (ProductoDAO) ctx.getBean("productoList");
-		for(Producto p : dao.getProductos()) {
+		ProductoServicio servicio = (ProductoServicio) ctx.getBean(ProductoServicio.class);
+		for(Producto p : servicio.getProductos()) {
 			System.out.println(p);
 		}
 		ctx.close();

@@ -39,7 +39,7 @@ public class ProductoList implements ProductoDAO {
 		return p;
 	}
 
-	public Producto getProducto(Integer id) {
+	public Producto getProducto( Integer id) {
 		return productos.stream()
 				.filter(p -> p.getId().equals(id))
 				.findAny()
